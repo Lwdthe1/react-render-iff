@@ -148,8 +148,9 @@ class Example extends Component {
 
           <RenderIf
             as="section"
-            className="u-textColorRed"
+            className="u-textColorRed u-marginBottom10"
             style={{ background: "blue" }}
+            title="Some cool stuff!"
             if={() => isFalse}
             elseIf={isTrue}
             elseIfRender={<p>This will do!</p>}
@@ -164,7 +165,11 @@ class Example extends Component {
           <div>
             <h3>The output of this example should be:</h3>
 
-            <section>
+            <section
+              class="u-textColorRed u-marginBottom10"
+              style="background: blue;"
+              title="Some cool stuff!"
+            >
               <p>This will do!</p>
             </section>
           </div>
@@ -210,6 +215,7 @@ class Example extends Component {
             <p>Hello, world.</p>
             <p>The expression evaluated to true 😎</p>
           </RenderIf>
+
           <div>
             <h3>The output of this example should be:</h3>
 
