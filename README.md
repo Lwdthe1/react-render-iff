@@ -45,7 +45,7 @@ class Example extends Component {
           />
 
           <div>
-            <h3>The output of this example should be:</h3>
+            <h3>🌴 The output of this example should be:</h3>
             Hello, world. The expression evaluated to true 😎
           </div>
         </div>
@@ -71,7 +71,7 @@ class Example extends Component {
           </RenderIf>
 
           <div>
-            <h3>The output of this example should be:</h3>
+            <h3>🌴 The output of this example should be:</h3>
             Hello, world. The expression evaluated to true 😎
           </div>
         </div>
@@ -94,7 +94,7 @@ class Example extends Component {
           </RenderIf>
 
           <div>
-            <h3>The output of this example should be:</h3>
+            <h3>🌴 The output of this example should be:</h3>
             This will do!
           </div>
         </div>
@@ -121,7 +121,7 @@ class Example extends Component {
           </RenderIf>
 
           <div>
-            <h3>The output of this example should be:</h3>
+            <h3>🌴 The output of this example should be:</h3>
 
             <p>Hello, world.</p>
             <p>The expression evaluated to true 😎</p>
@@ -163,7 +163,7 @@ class Example extends Component {
           </RenderIf>
 
           <div>
-            <h3>The output of this example should be:</h3>
+            <h3>🌴 The output of this example should be:</h3>
 
             <section
               class="u-textColorRed u-marginBottom10"
@@ -217,7 +217,7 @@ class Example extends Component {
           </RenderIf>
 
           <div>
-            <h3>The output of this example should be:</h3>
+            <h3>🌴 The output of this example should be:</h3>
 
             <header>
               <p>This will do!</p>
