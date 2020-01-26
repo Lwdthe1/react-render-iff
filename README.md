@@ -1,6 +1,6 @@
-# sd
+# react-render-iff
 
-> ads
+> react-render-iff
 
 [![NPM](https://img.shields.io/npm/v/sd.svg)](https://www.npmjs.com/package/sd) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
