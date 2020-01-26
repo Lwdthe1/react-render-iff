@@ -27,10 +27,8 @@
     "webpack-cli": "^3.2.0"
   },
   "dependencies": {
-    "@material-ui/core": "^3.9.3",
-    "axios": ">=0.18.1",
+    "prop-types": "latest",
     "react": "^16.7.0",
-    "react-dom": "^16.7.0",
-    "prop-types": "latest"
+    "react-dom": "^16.7.0"
   }
 }
