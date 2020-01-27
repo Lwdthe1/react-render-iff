@@ -232,4 +232,6 @@ class Example extends Component {
 
 ## License
 
+By [Lincoln W Daniel](https://lincolnwdaniel.com)
+
 MIT © [Lwdthe1](https://github.com/Lwdthe1)
