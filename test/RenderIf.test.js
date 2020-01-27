@@ -123,8 +123,9 @@ test("Example 6: Should catch thrown error", () => {
 
 test("Should fail when error thrown without safeEval", () => {
   let thrownError;
+  let component;
   try {
-    renderer.create(
+    component = renderer.create(
       <RenderIf
         as="header"
         if={() => {
@@ -147,4 +148,5 @@ test("Should fail when error thrown without safeEval", () => {
   expect(thrownError.message).toBe(
     "Oh no! An error occurred while evaluating the if condition!"
   );
+  expect(component).toBeNil();
 });
