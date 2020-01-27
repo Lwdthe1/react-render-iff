@@ -17,6 +17,10 @@
   ],
   "author": "Lwdthe1",
   "license": "Apache-2.0",
+  "peerDependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.8.3",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
@@ -27,8 +31,6 @@
     "webpack-cli": "^3.3.10"
   },
   "dependencies": {
-    "prop-types": "latest",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "prop-types": "latest"
   }
 }
