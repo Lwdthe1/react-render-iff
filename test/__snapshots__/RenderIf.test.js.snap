@@ -33,34 +33,10 @@ exports[`Example 5 1`] = `
 </section>
 `;
 
-exports[`Example 6 1`] = `
-<header>
-  <p>
-    This will do!
-  </p>
-</header>
-`;
-
 exports[`Example 6: Should catch thrown error 1`] = `
 <header>
   <p>
     This will do!
   </p>
 </header>
-`;
-
-exports[`Link changes the class when hovered 1`] = `
-<section
-  className="u-textColorRed u-marginBottom10"
-  style={
-    Object {
-      "background": "blue",
-    }
-  }
-  title="Some cool stuff!"
->
-  <p>
-    This will do!
-  </p>
-</section>
 `;
