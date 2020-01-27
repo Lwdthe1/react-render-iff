@@ -2,7 +2,7 @@
   "name": "react-render-iff",
   "version": "1.0.5",
   "description": "A helper component to render react components conditionally.",
-  "main": "dist/index.js",
+  "main": "dist/build.js",
   "repository": {
     "type": "git",
     "url": "Lwdthe1/react-render-iff"
