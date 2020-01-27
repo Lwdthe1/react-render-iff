@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Example 1 1`] = `"Hello, world. The expression evaluated to true 😎"`;
+
+exports[`Example 2 1`] = `"Hello, world. The expression evaluated to true 😎"`;
+
+exports[`Example 3 1`] = `"This will do!"`;
+
+exports[`Example 4 1`] = `
+Array [
+  <p>
+    Hello, world.
+  </p>,
+  <p>
+    The expression evaluated to true 😎
+  </p>,
+]
+`;
+
+exports[`Example 5 1`] = `
+<section
+  className="u-textColorRed u-marginBottom10"
+  style={
+    Object {
+      "background": "blue",
+    }
+  }
+  title="Some cool stuff!"
+>
+  <p>
+    This will do!
+  </p>
+</section>
+`;
+
+exports[`Example 6 1`] = `
+<header>
+  <p>
+    This will do!
+  </p>
+</header>
+`;
+
+exports[`Example 6: Should catch thrown error 1`] = `
+<header>
+  <p>
+    This will do!
+  </p>
+</header>
+`;
+
+exports[`Link changes the class when hovered 1`] = `
+<section
+  className="u-textColorRed u-marginBottom10"
+  style={
+    Object {
+      "background": "blue",
+    }
+  }
+  title="Some cool stuff!"
+>
+  <p>
+    This will do!
+  </p>
+</section>
+`;
