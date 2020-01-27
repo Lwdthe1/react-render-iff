@@ -1,6 +1,6 @@
 # react-render-iff
 
-![carbon (34)](https://user-images.githubusercontent.com/5778798/73144515-7154fa80-4074-11ea-9958-e95d46ce412f.png)
+![carbon (34)](https://user-images.githubusercontent.com/5778798/73144670-158b7100-4076-11ea-84e0-6b01bf1a42e1.png)
 
 [![NPM](https://img.shields.io/npm/v/sd.svg)](https://www.npmjs.com/package/sd) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
