@@ -1,7 +1,10 @@
-// Link.react.test.js
 import React from "react";
-import RenderIf from "../RenderIf";
+import pjson from "../package.json";
+import path from "path";
 import renderer from "react-test-renderer";
+
+// Test the root of the lib
+const RenderIf = require(path.join(__dirname, "../", pjson.main)).default;
 
 const isTrue = true;
 const isFalse = false;
