@@ -127,65 +127,7 @@ const RenderIf = React.forwardRef(function RenderIf(props, refToForward) {
       delete wrapperProps.debugKey;
       delete wrapperProps.safeEval;
 
-      switch (props.as) {
-        case "span":
-          return <span {...wrapperProps}>{v}</span>;
-        case "strong":
-          return <strong {...wrapperProps}>{v}</strong>;
-        case "i":
-          return <i {...wrapperProps}>{v}</i>;
-        case "code":
-          return <code {...wrapperProps}>{v}</code>;
-        case "pre":
-          return <pre {...wrapperProps}>{v}</pre>;
-        case "a":
-          return <a {...wrapperProps}>{v}</a>;
-        case "button":
-          return <button {...wrapperProps}>{v}</button>;
-        case "div":
-          return <div {...wrapperProps}>{v}</div>;
-        case "p":
-          return <p {...wrapperProps}>{v}</p>;
-        case "h1":
-          return <h1 {...wrapperProps}>{v}</h1>;
-        case "h2":
-          return <h2 {...wrapperProps}>{v}</h2>;
-        case "h3":
-          return <h3 {...wrapperProps}>{v}</h3>;
-        case "h4":
-          return <h4 {...wrapperProps}>{v}</h4>;
-        case "h5":
-          return <h5 {...wrapperProps}>{v}</h5>;
-        case "h6":
-          return <h6 {...wrapperProps}>{v}</h6>;
-        case "img":
-          return <img {...wrapperProps} />;
-        case "form":
-          return <form {...wrapperProps}>{v}</form>;
-        case "input":
-          return <input {...wrapperProps} />;
-        case "textarea":
-          return <textarea {...wrapperProps}>{v}</textarea>;
-        case "select":
-          return <select {...wrapperProps}>{v}</select>;
-        case "option":
-          return <option {...wrapperProps}>{v}</option>;
-        case "li":
-          return <li {...wrapperProps}>{v}</li>;
-        case "ul":
-          return <ul {...wrapperProps}>{v}</ul>;
-        case "header":
-          return <header {...wrapperProps}>{v}</header>;
-        case "section":
-          return <section {...wrapperProps}>{v}</section>;
-        case "main":
-          return <main {...wrapperProps}>{v}</main>;
-        default:
-          console.warn(
-            "That prop.as is not recognized. Please provide a primitive HTML element name or none at all:",
-            props.as
-          );
-      }
+      return <props.as {...wrapperProps}>{v}</props.as>;
     } else {
       return v;
     }
