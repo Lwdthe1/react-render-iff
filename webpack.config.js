@@ -32,6 +32,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist/"),
     publicPath: "",
     filename: "build.js",
-    libraryTarget: "umd"
+    libraryTarget: "umd",
+    globalObject: "this"
   }
 };
