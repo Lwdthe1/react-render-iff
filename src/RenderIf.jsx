@@ -95,7 +95,7 @@ const RenderIf = React.forwardRef(function RenderIf(props, refToForward) {
 
   if (providedMutuallyExclusiveIfProps.length > 1) {
     console.warn(
-      "You've provided all of the following top-level conditional props. You should only provide one of these props to avoid unexpected consequences.\n\t",
+      "You've provided more than one of the following top-level conditional props. You should only provide one of these props to avoid unexpected consequences.\n\t",
       JSON.stringify(providedMutuallyExclusiveIfProps)
     );
   }

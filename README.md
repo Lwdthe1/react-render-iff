@@ -178,7 +178,7 @@ class Example extends Component {
         <div>
           <h2>Example 6:</h2>
           <p>
-            ⚠️ You can specify whether to evaluate everything safely by
+            ⚠️ You can specify whether to evaluate all conditionals safely by
             providing a truthy value to the "safeEval" prop.
             <br />
             <br />
