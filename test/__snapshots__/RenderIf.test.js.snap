@@ -40,3 +40,36 @@ exports[`Example 6: Should catch thrown error 1`] = `
   </p>
 </header>
 `;
+
+exports[`Render 'as' prop when provided a React functional component 1`] = `
+<div
+  className="u-textColorRed u-marginBottom10"
+  style={
+    Object {
+      "background": "blue",
+    }
+  }
+  title="Some cool stuff!"
+>
+  CompA stuff 
+  <p>
+    Bye, world. Both expressions evaluated to false 😥
+  </p>
+</div>
+`;
+
+exports[`Render 'as' prop when provided as string 1`] = `
+<h7
+  className="u-textColorRed u-marginBottom10"
+  style={
+    Object {
+      "background": "blue",
+    }
+  }
+  title="Some cool stuff!"
+>
+  <p>
+    This will do!
+  </p>
+</h7>
+`;

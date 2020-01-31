@@ -23,6 +23,11 @@ class Example extends Component {
   render() {
     const isTrue = 1 == 1;
     const isFalse = 1 == 2;
+
+    const ExampleComp = props => {
+      return <div {...props}>My wrapper comp stuff: {props.children}</div>;
+    };
+
     return (
       <div>
         <h1>Example uses</h1>
@@ -135,9 +140,9 @@ class Example extends Component {
             properties you provide.
             <br />
             <br />
-            The "as" prop only supports most of the basic HTML elements. If what
-            you provide is not supported, a warning will be printed and nothing will
-            be rendered.
+            The "as" prop supports all HTML elements and any react components you
+            provide to it. If you choose to provide a react component, your component
+            must render the "props.children" that will be provided to it.
             <br />
             <br />
             The "elseIf" will succeed. "<RenderIf />" will be rendered as a "
@@ -177,6 +182,50 @@ class Example extends Component {
 
         <div>
           <h2>Example 6:</h2>
+          <p>
+            Here, we provide a react component to the "as" prop. If you choose
+            to provide a react component, your component must render the
+            "props.children" that will be provided to it.
+            <br />
+            <br />
+            The "else" will succeed. "<RenderIf />" will be rendered as a "
+            <ExampleComp />" node with the provided classes and style, as well
+            as any other allowed properties; the properties specific to "
+            <RenderIf />" will be ignored when rendering.
+          </p>
+
+          <RenderIf
+            as={ExampleComp}
+            className="u-textColorRed u-marginBottom10"
+            style={{ background: "blue" }}
+            title="Some cool stuff!"
+            if={() => isFalse}
+            elseIf={isFalse}
+            elseIfRender={<p>This will do!</p>}
+            else={() => (
+              <p>Bye, world. Both expressions evaluated to false 😥</p>
+            )}
+          >
+            <p>Hello, world.</p>
+            <p>The expression evaluated to true 😎</p>
+          </RenderIf>
+
+          <div>
+            <h3>🌴 The output of this example should be:</h3>
+
+            <div
+              class="u-textColorRed u-marginBottom10"
+              style="background: blue;"
+              title="Some cool stuff!"
+            >
+              My wrapper comp stuff:
+              <p>Bye, world. Both expressions evaluated to false 😥</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2>Example 7:</h2>
           <p>
             ⚠️ You can specify whether to evaluate all conditions safely by
             providing a truthy value to the "safeEval" prop.

@@ -150,3 +150,47 @@ test("Should fail when error thrown without safeEval", () => {
   );
   expect(component).toBeNil();
 });
+
+test("Render 'as' prop when provided as string", () => {
+  const component = renderer.create(
+    <RenderIf
+      as="h7"
+      className="u-textColorRed u-marginBottom10"
+      style={{ background: "blue" }}
+      title="Some cool stuff!"
+      if={() => isFalse}
+      elseIf={isTrue}
+      elseIfRender={<p>This will do!</p>}
+      else={() => <p>Bye, world. Both expressions evaluated to false 😥</p>}
+    >
+      <p>Hello, world.</p>
+      <p>The expression evaluated to true 😎</p>
+    </RenderIf>
+  );
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test("Render 'as' prop when provided a React functional component", () => {
+  const CompA = props => {
+    return <div {...props}>CompA stuff {props.children}</div>;
+  };
+
+  const component = renderer.create(
+    <RenderIf
+      as={CompA}
+      className="u-textColorRed u-marginBottom10"
+      style={{ background: "blue" }}
+      title="Some cool stuff!"
+      if={() => isFalse}
+      elseIf={isFalse}
+      elseIfRender={<p>This will do!</p>}
+      else={() => <p>Bye, world. Both expressions evaluated to false 😥</p>}
+    >
+      <p>Hello, world.</p>
+      <p>The expression evaluated to true 😎</p>
+    </RenderIf>
+  );
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
