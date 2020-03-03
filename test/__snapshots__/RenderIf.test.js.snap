@@ -33,12 +33,30 @@ exports[`Example 5 1`] = `
 </section>
 `;
 
-exports[`Example 6: Should catch thrown error 1`] = `
+exports[`Example 6: Should catch thrown error in else render-prop when safeEval provided as true 1`] = `null`;
+
+exports[`Example 6: Should catch thrown error in elseIf condition when safeEval provided as true 1`] = `
+<header>
+  <p>
+    Bye, world. Both expressions evaluated to false 😥
+  </p>
+</header>
+`;
+
+exports[`Example 6: Should catch thrown error in elseIfRender render-prop when safeEval provided as true 1`] = `null`;
+
+exports[`Example 6: Should catch thrown error in if condition when safeEval provided as true 1`] = `
 <header>
   <p>
     This will do!
   </p>
 </header>
+`;
+
+exports[`Example 6: Should catch thrown error in render render-prop when safeEval provided as true 1`] = `
+<header
+  render={[Function]}
+/>
 `;
 
 exports[`Render 'as' prop when provided a React functional component 1`] = `

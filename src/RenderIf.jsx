@@ -210,7 +210,7 @@ const RenderIf = React.forwardRef(function RenderIf(props, refToForward) {
   } catch (err) {
     if (props.safeEval) {
       consoleWarn(
-        '[safeEval] Error while evaluating "elseIf" condition:',
+        `[safeEval: ${props.safeEval}] Error while evaluating "elseIf" condition:`,
         err.stack
       );
     } else {
