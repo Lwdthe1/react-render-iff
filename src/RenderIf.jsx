@@ -39,6 +39,10 @@ const RenderIf = React.forwardRef(function RenderIf(props, refToForward) {
   let ifCondition;
   const elseIfCondition = props.elseIf;
 
+  const consoleWarn = function() {
+    console.warn.apply(undefined, arguments);
+  };
+
   const checkIsAtPositionInArray = (check, couple) => {
     const checkFirst = check === "first";
     const checkLast = check === "last";
@@ -59,7 +63,7 @@ const RenderIf = React.forwardRef(function RenderIf(props, refToForward) {
     const arr = couple[indexOfIndex === 0 ? 1 : 0];
 
     if (index === undefined) {
-      console.warn(
+      consoleWarn(
         "Should always provide an index for ifFirst or ifLast check."
       );
     }
@@ -69,7 +73,7 @@ const RenderIf = React.forwardRef(function RenderIf(props, refToForward) {
     }
 
     if (!arr) {
-      console.warn("Should always provide an array for position check");
+      consoleWarn("Should always provide an array for position check");
       // Default to ifLast=true
       return true;
     }
@@ -94,7 +98,7 @@ const RenderIf = React.forwardRef(function RenderIf(props, refToForward) {
   });
 
   if (providedMutuallyExclusiveIfProps.length > 1) {
-    console.warn(
+    consoleWarn(
       "You've provided more than one of the following top-level conditional props. You should only provide one of these props to avoid unexpected consequences.\n\t",
       JSON.stringify(providedMutuallyExclusiveIfProps)
     );
@@ -116,6 +120,7 @@ const RenderIf = React.forwardRef(function RenderIf(props, refToForward) {
       if (refToForward) {
         wrapperProps.ref = refToForward;
       }
+
       delete wrapperProps.if;
       delete wrapperProps.ifFirst;
       delete wrapperProps.ifLast;
@@ -150,7 +155,7 @@ const RenderIf = React.forwardRef(function RenderIf(props, refToForward) {
   }
 
   if (ifCondition === undefined && !hasAnIfConditionProps) {
-    console.warn(
+    consoleWarn(
       `Should provide props.if\n${
         props.debugKey
           ? `Debug key: ${props.debugKey}. ${Object.keys(props)}`
@@ -160,7 +165,7 @@ const RenderIf = React.forwardRef(function RenderIf(props, refToForward) {
   }
 
   if (props.elseIf !== undefined && !props.elseIfRender) {
-    console.warn(
+    consoleWarn(
       "You provided props.elseIf without a corresponding props.elseIfRender. Nothing will be rendered if this condition evaluates to true"
     );
   }
@@ -171,8 +176,8 @@ const RenderIf = React.forwardRef(function RenderIf(props, refToForward) {
     evaluatedIfCondition = evaluateValue(ifCondition, cbData);
   } catch (err) {
     if (props.safeEval) {
-      console.warn(
-        `[safeEval: ${props.safeEval}] Error while evaluating if-condition:`,
+      consoleWarn(
+        `[safeEval: ${props.safeEval}] Error while evaluating "if" condition:`,
         err.stack
       );
     } else {
@@ -182,7 +187,18 @@ const RenderIf = React.forwardRef(function RenderIf(props, refToForward) {
 
   if (evaluatedIfCondition) {
     if (props.render) {
-      return renderResult(evaluateValue(props.render));
+      try {
+        return renderResult(evaluateValue(props.render));
+      } catch (err) {
+        if (props.safeEval) {
+          consoleWarn(
+            `[safeEval: ${props.safeEval}] Error while evaluating "render" prop:`,
+            err.stack
+          );
+        } else {
+          throw err;
+        }
+      }
     }
     return renderResult(props.children);
   }
@@ -193,8 +209,8 @@ const RenderIf = React.forwardRef(function RenderIf(props, refToForward) {
     evaluatedElseIfCondition = evaluateValue(elseIfCondition, cbData);
   } catch (err) {
     if (props.safeEval) {
-      console.warn(
-        "[safeEval] Error while evaluating else-if-condition:",
+      consoleWarn(
+        `[safeEval: ${props.safeEval}] Error while evaluating "elseIf" condition:`,
         err.stack
       );
     } else {
@@ -204,7 +220,18 @@ const RenderIf = React.forwardRef(function RenderIf(props, refToForward) {
 
   if (evaluatedElseIfCondition) {
     if (props.elseIfRender) {
-      return renderResult(evaluateValue(props.elseIfRender));
+      try {
+        return renderResult(evaluateValue(props.elseIfRender));
+      } catch (err) {
+        if (props.safeEval) {
+          consoleWarn(
+            `[safeEval: ${props.safeEval}] Error while evaluating "elseIfRender" prop:`,
+            err.stack
+          );
+        } else {
+          throw err;
+        }
+      }
     }
 
     return null;
@@ -212,7 +239,18 @@ const RenderIf = React.forwardRef(function RenderIf(props, refToForward) {
 
   // Render the else contents
   if (props.else !== undefined) {
-    return renderResult(evaluateValue(props.else, cbData));
+    try {
+      return renderResult(evaluateValue(props.else, cbData));
+    } catch (err) {
+      if (props.safeEval) {
+        consoleWarn(
+          `[safeEval: ${props.safeEval}] Error while evaluating "else" prop:`,
+          err.stack
+        );
+      } else {
+        throw err;
+      }
+    }
   }
   return null;
 });
