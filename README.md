@@ -227,14 +227,14 @@ class Example extends Component {
         <div>
           <h2>Example 7:</h2>
           <p>
-            ⚠️ You can specify whether to evaluate all conditions safely by
-            providing a truthy value to the "safeEval" prop.
+            ⚠️ You can specify whether to evaluate all conditions and render
+            props safely by providing a truthy value to the "safeEval" prop.
             <br />
             <br />
             If an error occurs while evaluating the conditions, a warning will be
             printed to the console with the value of "safeEval" as the key for debugging.
-            This only works when the conditionals are provided as arrow functions,
-            so keep that in mind.
+            This only works when the conditionals and render props are provided as
+            arrow functions, so keep that in mind.
             <br />
             <br />
             This can come in handy when rewriting your AngularJs app in React
