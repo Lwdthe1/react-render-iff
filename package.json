@@ -1,6 +1,6 @@
 {
   "name": "react-render-iff",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "A helper component to render react components conditionally.",
   "main": "dist/build.js",
   "repository": {
@@ -23,8 +23,8 @@
   "author": "Lwdthe1",
   "license": "MIT",
   "peerDependencies": {
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react": ">= 16.x",
+    "react-dom": ">= 16.x"
   },
   "devDependencies": {
     "@babel/core": "^7.8.3",
