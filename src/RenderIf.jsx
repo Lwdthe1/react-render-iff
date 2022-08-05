@@ -285,6 +285,7 @@ RenderIf.defaultProps = {
   if: false,
   safeEval: false,
   as: undefined,
+  css: undefined,
 };
 
 export default RenderIf;
