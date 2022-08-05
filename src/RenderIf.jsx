@@ -39,7 +39,7 @@ const RenderIf = React.forwardRef(function RenderIf(props, refToForward) {
   let ifCondition;
   const elseIfCondition = props.elseIf;
 
-  const consoleWarn = function() {
+  const consoleWarn = function () {
     console.warn.apply(undefined, arguments);
   };
 
@@ -90,10 +90,10 @@ const RenderIf = React.forwardRef(function RenderIf(props, refToForward) {
 
   const mutuallyExclusiveIfProps = ["if", "ifFirst", "ifLast", "if2ndToLast"];
   const providedMutuallyExclusiveIfProps = mutuallyExclusiveIfProps.filter(
-    key => props[key] !== undefined
+    (key) => props[key] !== undefined
   );
 
-  const hasAnIfConditionProps = mutuallyExclusiveIfProps.some(key => {
+  const hasAnIfConditionProps = mutuallyExclusiveIfProps.some((key) => {
     return Object.keys(props).includes(key);
   });
 
@@ -106,20 +106,22 @@ const RenderIf = React.forwardRef(function RenderIf(props, refToForward) {
 
   const getArrayProp = () => props.ifFirst || props.ifLast || props.if2ndToLast;
   const cbData = {
-    checkIsFirst: couple =>
+    checkIsFirst: (couple) =>
       checkIsAtPositionInArray("first", couple || getArrayProp()),
-    checkIsLast: couple =>
+    checkIsLast: (couple) =>
       checkIsAtPositionInArray("last", couple || getArrayProp()),
-    checkIs2ndToLast: couple =>
-      checkIsAtPositionInArray("2ndToLast", couple || getArrayProp())
+    checkIs2ndToLast: (couple) =>
+      checkIsAtPositionInArray("2ndToLast", couple || getArrayProp()),
   };
 
-  const renderResult = v => {
+  const renderResult = (v) => {
     if (props.as) {
       const wrapperProps = { ...props };
       if (refToForward) {
         wrapperProps.ref = refToForward;
       }
+
+      const cssProp = wrapperProps.css;
 
       delete wrapperProps.if;
       delete wrapperProps.ifFirst;
@@ -129,10 +131,18 @@ const RenderIf = React.forwardRef(function RenderIf(props, refToForward) {
       delete wrapperProps.elseIf;
       delete wrapperProps.elseIfRender;
       delete wrapperProps.as;
+      delete wrapperProps.css;
       delete wrapperProps.debugKey;
       delete wrapperProps.safeEval;
 
-      return <props.as {...wrapperProps}>{v}</props.as>;
+      return (
+        // The styled-component css prop only works if the prop is defined directly on the element
+        // instead of being spread.
+        // I'm not sure why.
+        <props.as css={cssProp} {...wrapperProps}>
+          {v}
+        </props.as>
+      );
     } else {
       return v;
     }
@@ -266,13 +276,16 @@ RenderIf.propTypes = {
   render: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   elseIfRender: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   as: PropTypes.string,
-  safeEval: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
+  // Support styled-components css prop
+  css: PropTypes.any,
+  safeEval: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
 };
 
 RenderIf.defaultProps = {
   if: false,
   safeEval: false,
-  as: undefined
+  as: undefined,
+  css: undefined,
 };
 
 export default RenderIf;
